@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quotesapp.R
 import com.example.quotesapp.db.QuoteDb
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var quoteDbViewModel: QuotesDbViewModel
@@ -35,9 +36,10 @@ class MainActivity : AppCompatActivity() {
         quoteDbViewModel.allQuotes.observe(this, Observer { quotes ->
             //update the coached copy of the quotes in the adapter
             quotes?.let { adapter.setQuotes(it) }
+
         })
         quoteDbViewModel.capacityAuthors.observe(this, Observer { size ->
-            size?.let { adapter.setSize() }
+            textNumber.text = size.toString()
         })
 
         //gdy dodoaje nowy wpis
