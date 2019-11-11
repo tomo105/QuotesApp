@@ -13,17 +13,21 @@ class QuotesDbViewModel(application: Application) : AndroidViewModel(application
     private val repository: QuoteDbRepository  // hold a reference to the repository.
 
     val allQuotes: LiveData<List<QuoteDb>>
-
+    val capacityAuthors: LiveData<Int>
     init {
         val quotesDbDao = QuoteDbRoomDatabase.getDatabase(application,viewModelScope).quoteDbDao()//reference to the WordDao from the WordRoomDatabase
         repository = QuoteDbRepository(quotesDbDao)
         allQuotes = repository.allAuthor
+        capacityAuthors = repository.allAuthorSize
     }
 
     fun insert(quoteDb: QuoteDb) = viewModelScope.launch {
         repository.insert(quoteDb)
     }
-    //fun capacity()
+
+//    fun capacity() = viewModelScope.launch{
+//        repository.capacity()
+//    }
 
 }
 

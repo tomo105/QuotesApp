@@ -21,6 +21,8 @@ interface QuoteDbDao {
     @Query("DELETE FROM quotes_db")
     suspend fun deleteAll()
 
+    @Query("SELECT COUNT(*) FROM quotes_db ")
+     fun capacity() : LiveData<Int>
 
 
     //   @Query("SELECT * FROM todoentity WHERE title LIKE :title")

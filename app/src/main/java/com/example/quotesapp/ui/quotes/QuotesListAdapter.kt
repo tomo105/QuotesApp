@@ -31,13 +31,16 @@ class QuotesListAdapter internal constructor(
     override fun getItemCount(): Int = quotes.size
 
 
-    override fun onBindViewHolder(holder: QuotesListAdapter.QuotesDbViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: QuotesDbViewHolder, position: Int) {
         val current = quotes[position]
         holder.qoutesItemView.text = current.quote
     }
 
     internal fun setQuotes(quotes: List<QuoteDb>) {
         this.quotes = quotes
+        notifyDataSetChanged()
+    }
+    internal fun setSize() {
         notifyDataSetChanged()
     }
 }

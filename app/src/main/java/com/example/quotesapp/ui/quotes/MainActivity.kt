@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,16 +13,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quotesapp.R
 import com.example.quotesapp.db.QuoteDb
-import com.example.quotesapp.db.QuoteDbRoomDatabase
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var quoteDbViewModel: QuotesDbViewModel
     private val newQuoteActivityRequestedCode = 1
+    private val newQuoteActivityRequestedCode2 = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quotes)
+        setContentView(R.layout.activity_main)
         // setSupportActionBar(toolbar)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
@@ -35,13 +36,16 @@ class MainActivity : AppCompatActivity() {
             //update the coached copy of the quotes in the adapter
             quotes?.let { adapter.setQuotes(it) }
         })
+        quoteDbViewModel.capacityAuthors.observe(this, Observer { size ->
+            size?.let { adapter.setSize() }
+        })
 
+        //gdy dodoaje nowy wpis
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity, NewQuoteActivity::class.java)
             startActivityForResult(intent, newQuoteActivityRequestedCode)
         }
-
 
     }
 
@@ -50,9 +54,14 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newQuoteActivityRequestedCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(NewQuoteActivity.EXTRA_REPLY)?.let {
-                val quote = QuoteDb(null, it,"sd")
+                val quote = QuoteDb(null, it, "sd")
                 quoteDbViewModel.insert(quote)
             }
+//        } else if (requestCode == newQuoteActivityRequestedCode2 && resultCode == Activity.RESULT_OK) {
+//            data?.getStringExtra(NewQuoteActivity.EXTRA_REPLY)?.let {
+//                val quote = QuoteDb(null, it, "sd")
+//                quoteDbViewModel.insert(quote)
+//            }
         } else {
             Toast.makeText(
                 applicationContext,
