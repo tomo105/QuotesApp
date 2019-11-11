@@ -23,6 +23,7 @@ class QuotesDbViewModel(application: Application) : AndroidViewModel(application
     fun insert(quoteDb: QuoteDb) = viewModelScope.launch {
         repository.insert(quoteDb)
     }
+    //fun capacity()
 
 }
 

@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [QuoteDb::class], version = 1, exportSchema = false)
+@Database(entities = [QuoteDb::class], version = 1)
 
 abstract class QuoteDbRoomDatabase : RoomDatabase() {
 

@@ -20,16 +20,16 @@ class NewQuoteActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()
-            if(TextUtils.isEmpty(editQuoteView.text)) {
+            if (TextUtils.isEmpty(editQuoteView.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
-            }
-            else{
+            } else {
                 val quote = editQuoteView.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY,quote)
-                setResult(Activity.RESULT_OK,replyIntent)
+                replyIntent.putExtra(EXTRA_REPLY, quote)
+                setResult(Activity.RESULT_OK, replyIntent)
             }
         }
     }
+
     companion object {
         const val EXTRA_REPLY = "com.example.quotelistsql.REPLY"
     }

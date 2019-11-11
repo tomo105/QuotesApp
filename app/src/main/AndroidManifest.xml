@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/word_title">
         <activity android:name=".ui.quotes.NewQuoteActivity"></activity>
-        <activity android:name=".ui.quotes.QuotesActivity">
+        <activity android:name=".ui.quotes.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

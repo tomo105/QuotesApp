@@ -16,10 +16,12 @@ interface QuoteDbDao {
     fun getAlphabetizedAuthors(): LiveData<List<QuoteDb>>
 
     @Insert
-    fun insertAll(vararg quoteDb: QuoteDb)
+    suspend fun insertAll(vararg quoteDb: QuoteDb)
 
     @Query("DELETE FROM quotes_db")
-    fun deleteAll()
+    suspend fun deleteAll()
+
+
 
     //   @Query("SELECT * FROM todoentity WHERE title LIKE :title")
     //  fun findByTitle(title: String): LiveData<List<TodoEntity>>
