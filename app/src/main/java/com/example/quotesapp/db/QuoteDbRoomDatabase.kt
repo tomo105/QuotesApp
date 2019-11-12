@@ -27,14 +27,14 @@ abstract class QuoteDbRoomDatabase : RoomDatabase() {
         }
 
         suspend fun populateDatabase(quoteDbDao: QuoteDbDao) {
-          //  quoteDbDao.deleteAll()// Delete all content here.
+          // quoteDbDao.deleteAll()// Delete all content here.
 
 
-//            // Add sample words.
-//            var quote = QuoteDb(null, "ala ", "kot")
-//            quoteDbDao.insertAll(quote)
-//            quote = QuoteDb(null, "call me ", "maybe")
-//            quoteDbDao.insertAll(quote)
+            // Add sample words.
+            var quote = QuoteDb(null, "ala ", "kot")
+            quoteDbDao.insertAll(quote)
+            quote = QuoteDb(null, "call me ", "maybe")
+            quoteDbDao.insertAll(quote)
 
             //adding data do it from repository !!!
         }

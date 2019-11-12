@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.tomsecommerce.MainActivity">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/actionHome"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:orderInCategory="100"
+            android:title="settings"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/actionShorts"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:orderInCategory="100"
+            android:title="aaaa"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_settings4"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:orderInCategory="100"
+            android:title="sssss"
+            app:showAsAction="never" />
+
+    </group>
+</menu>
