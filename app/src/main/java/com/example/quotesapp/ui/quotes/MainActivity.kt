@@ -27,10 +27,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.frameLayout, MainFragment())
-//            .commit()
-
         navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.actionHome -> {
@@ -84,28 +80,28 @@ class MainActivity : AppCompatActivity() {
     //--------------------------------------
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == newQuoteActivityRequestedCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(NewQuoteActivity.EXTRA_REPLY)?.let {
-                val quote = QuoteDb(null, it, "sd")
-                quoteDbViewModel.insert(quote)
-            }
-//        } else if (requestCode == newQuoteActivityRequestedCode2 && resultCode == Activity.RESULT_OK) {
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        if (requestCode == newQuoteActivityRequestedCode && resultCode == Activity.RESULT_OK) {
 //            data?.getStringExtra(NewQuoteActivity.EXTRA_REPLY)?.let {
 //                val quote = QuoteDb(null, it, "sd")
 //                quoteDbViewModel.insert(quote)
 //            }
-        } else {
-            Toast.makeText(
-                applicationContext,
-                R.string.empty_not_saved,
-                Toast.LENGTH_LONG
-            ).show()
-
-        }
-    }
+////        } else if (requestCode == newQuoteActivityRequestedCode2 && resultCode == Activity.RESULT_OK) {
+////            data?.getStringExtra(NewQuoteActivity.EXTRA_REPLY)?.let {
+////                val quote = QuoteDb(null, it, "sd")
+////                quoteDbViewModel.insert(quote)
+////            }
+//        } else {
+//            Toast.makeText(
+//                applicationContext,
+//                R.string.empty_not_saved,
+//                Toast.LENGTH_LONG
+//            ).show()
+//
+//        }
+//    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         drawerLayout.openDrawer(GravityCompat.START)

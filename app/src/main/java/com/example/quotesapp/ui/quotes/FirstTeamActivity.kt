@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log.d
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -13,20 +14,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quotesapp.R
 import com.example.quotesapp.db.QuoteDb
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.firstteam_activity.*
 import kotlinx.android.synthetic.main.main.*
 
 class FirstTeamActivity : AppCompatActivity() {
 
     private lateinit var quoteDbViewModel: QuotesDbViewModel
-    private val newQuoteActivityRequestedCode = 1
+    private val newQuoteActivityRequestedCode = 2
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+        setContentView(R.layout.firstteam_activity)
+       val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         val adapter = QuotesListAdapter(this)
-        recyclerView.adapter = adapter
+
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
 
         quoteDbViewModel = ViewModelProvider(this).get(QuotesDbViewModel::class.java)
         quoteDbViewModel.allQuotes.observe(this, Observer { quotes ->
@@ -41,6 +46,7 @@ class FirstTeamActivity : AppCompatActivity() {
         //gdy dodoaje nowy wpis
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
+            d("tomek", "clicked a fab")
             val intent = Intent(this, NewQuoteActivity::class.java)
             startActivityForResult(intent, newQuoteActivityRequestedCode)
         }
@@ -53,6 +59,8 @@ class FirstTeamActivity : AppCompatActivity() {
             data?.getStringExtra(NewQuoteActivity.EXTRA_REPLY)?.let {
                 val quote = QuoteDb(null, it, "sd")
                 quoteDbViewModel.insert(quote)
+
+                d("tomek", "OKKK")
             }
 //        } else if (requestCode == newQuoteActivityRequestedCode2 && resultCode == Activity.RESULT_OK) {
 //            data?.getStringExtra(NewQuoteActivity.EXTRA_REPLY)?.let {

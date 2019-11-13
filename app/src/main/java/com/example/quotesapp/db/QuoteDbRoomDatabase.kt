@@ -31,10 +31,10 @@ abstract class QuoteDbRoomDatabase : RoomDatabase() {
 
 
             // Add sample words.
-            var quote = QuoteDb(null, "ala ", "kot")
-            quoteDbDao.insertAll(quote)
-            quote = QuoteDb(null, "call me ", "maybe")
-            quoteDbDao.insertAll(quote)
+//            var quote = QuoteDb(null, "ala ", "kot")
+//            quoteDbDao.insertAll(quote)
+//            quote = QuoteDb(null, "call me ", "maybe")
+//            quoteDbDao.insertAll(quote)
 
             //adding data do it from repository !!!
         }
