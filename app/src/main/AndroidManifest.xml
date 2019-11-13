@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.quotes.NewQuoteActivity"></activity>
+        <activity android:name=".ui.quotes.NewQuoteActivity" android:parentActivityName=".ui.quotes.FirstTeamActivity"></activity>
+
         <activity android:name=".ui.quotes.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.quotes.FirstTeamActivity" />
+        <activity android:name=".ui.quotes.FirstTeamActivity" android:parentActivityName=".ui.quotes.MainActivity" />
     </application>
 
 </manifest>

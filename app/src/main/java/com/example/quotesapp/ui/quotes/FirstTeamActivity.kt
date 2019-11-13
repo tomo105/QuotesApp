@@ -16,6 +16,7 @@ import com.example.quotesapp.db.QuoteDb
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.firstteam_activity.*
 import kotlinx.android.synthetic.main.main.*
+import kotlinx.android.synthetic.main.start_main.*
 
 class FirstTeamActivity : AppCompatActivity() {
 

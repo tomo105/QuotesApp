@@ -25,6 +25,7 @@ class QuotesListAdapter internal constructor(
         parent: ViewGroup, viewType: Int
     ): QuotesDbViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
+
         return QuotesDbViewHolder(itemView)
     }
 

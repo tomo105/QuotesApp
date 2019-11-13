@@ -14,13 +14,13 @@
             android:id="@+id/actionShorts"
             android:icon="@drawable/ic_add_black_24dp"
             android:orderInCategory="100"
-            android:title="aaaa"
+            android:title="@string/first_team"
             app:showAsAction="never" />
         <item
             android:id="@+id/action_settings4"
             android:icon="@drawable/ic_add_black_24dp"
             android:orderInCategory="100"
-            android:title="sssss"
+            android:title="@string/second_team"
             app:showAsAction="never" />
 
     </group>

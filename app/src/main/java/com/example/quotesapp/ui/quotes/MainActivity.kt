@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, MainFragment())
+            .commit()
+
         navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.actionHome -> {
