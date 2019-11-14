@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quotesapp.R
 import com.example.quotesapp.db.QuoteDb
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.firstteam_activity.*
 import kotlinx.android.synthetic.main.main.*
 import kotlinx.android.synthetic.main.start_main.*
@@ -28,7 +30,7 @@ class FirstTeamActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.firstteam_activity)
-       val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         val adapter = QuotesListAdapter(this)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -76,5 +78,23 @@ class FirstTeamActivity : AppCompatActivity() {
             ).show()
 
         }
+    }
+
+    override fun onBackPressed() {
+        //var navigationView = findViewById<NavigationView>(R.id.navigationView)
+        // var  selected = navigationView.getSele
+        d("tomek","pressed back ")
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.recyclerview, MainFragment())
+//            .commit()
+      //  super.onBackPressed()
+
+        //activity?.let {
+
+            // recyclerview.layoutManager =LinearLayoutManager(context)
+            // recyclerview.adapter = context?.let { it1 -> QuotesListAdapter(it1) }
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+       // }
     }
 }

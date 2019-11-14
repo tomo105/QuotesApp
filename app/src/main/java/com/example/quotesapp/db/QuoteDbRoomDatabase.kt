@@ -27,7 +27,7 @@ abstract class QuoteDbRoomDatabase : RoomDatabase() {
         }
 
         suspend fun populateDatabase(quoteDbDao: QuoteDbDao) {
-          // quoteDbDao.deleteAll()// Delete all content here.
+           quoteDbDao.deleteAll()// Delete all content here.
 
 
             // Add sample words.
