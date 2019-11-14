@@ -120,23 +120,3 @@ class MainActivity : AppCompatActivity() {
 //        return true
 //    }
 }
-//    private fun initializeUi() {
-//        val factory = InjectionUtils.provideQuotesViewModelFactory()
-//        val viewModel = ViewModelProviders.of(this, factory)
-//            .get(QuotesViewModel::class.java)
-//
-//        viewModel.getQuotes().observe(this, Observer { quotes ->
-//            val stringBuilder = StringBuilder()
-//            quotes.forEach { quote ->
-//                stringBuilder.append("$quote\n\n")
-//            }
-//            textView_quotes.text = stringBuilder.toString()
-//        })
-//        button_add_quote.setOnClickListener {
-//            val quote = Quote(editText_quote.text.toString(), editText_author.text.toString())
-//            viewModel.addQuotes(quote)
-//            editText_quote.setText("")
-//            editText_author.setText("")
-//        }
-//    }
-

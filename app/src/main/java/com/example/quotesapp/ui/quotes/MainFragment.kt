@@ -15,16 +15,14 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root =  inflater.inflate(R.layout.start_main, container, false)
-            root.buttonfirstteam.setOnClickListener {
-                activity?.let {
+        val root = inflater.inflate(R.layout.start_main, container, false)
+        root.buttonfirstteam.setOnClickListener {
+            activity?.let {
 
-                    // recyclerview.layoutManager =LinearLayoutManager(context)
-                    // recyclerview.adapter = context?.let { it1 -> QuotesListAdapter(it1) }
-                    val intent = Intent(activity,FirstTeamActivity::class.java)
-                    startActivity(intent)
-                }
+                val intent = Intent(activity, FirstTeamActivity::class.java)
+                startActivity(intent)
             }
+        }
 
 
         return root

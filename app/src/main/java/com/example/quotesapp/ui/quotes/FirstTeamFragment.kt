@@ -17,13 +17,10 @@ class FirstTeamFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         activity?.let {
-
-           // recyclerview.layoutManager =LinearLayoutManager(context)
-           // recyclerview.adapter = context?.let { it1 -> QuotesListAdapter(it1) }
-            val intent = Intent(activity,FirstTeamActivity::class.java)
+            val intent = Intent(activity, FirstTeamActivity::class.java)
             startActivity(intent)
         }
-        return inflater.inflate(R.layout.firstteam_activity, container,false)
+        return inflater.inflate(R.layout.firstteam_activity, container, false)
 
     }
 

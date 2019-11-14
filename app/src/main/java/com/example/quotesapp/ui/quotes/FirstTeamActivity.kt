@@ -81,20 +81,10 @@ class FirstTeamActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        //var navigationView = findViewById<NavigationView>(R.id.navigationView)
-        // var  selected = navigationView.getSele
-        d("tomek","pressed back ")
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.recyclerview, MainFragment())
-//            .commit()
-      //  super.onBackPressed()
 
-        //activity?.let {
+        d("tomek", "pressed back ")
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
 
-            // recyclerview.layoutManager =LinearLayoutManager(context)
-            // recyclerview.adapter = context?.let { it1 -> QuotesListAdapter(it1) }
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
-       // }
     }
 }
