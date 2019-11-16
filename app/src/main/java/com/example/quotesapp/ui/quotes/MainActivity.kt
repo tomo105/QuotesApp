@@ -1,31 +1,23 @@
 package com.example.quotesapp.ui.quotes
 
-import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.core.view.GravityCompat
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.quotesapp.R
-import com.example.quotesapp.db.QuoteDb
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.quotesapp.ui.quotes.firstteam.FirstTeamFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.main.*
+import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var quoteDbViewModel: QuotesDbViewModel
-    private val newQuoteActivityRequestedCode = 1
+  //  private lateinit var quoteDbViewModel: QuotesDbViewModel
+   // private val newQuoteActivityRequestedCode = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbarFirstTeam)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, MainFragment())
@@ -40,9 +32,11 @@ class MainActivity : AppCompatActivity() {
                     d("tomek", "pressed action home")
 
                 }
-                R.id.actionShorts -> {
+                R.id.actionFirstTeam -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, FirstTeamFragment())
+                        .replace(R.id.frameLayout,
+                            FirstTeamFragment()
+                        )
                         .commit()
                     d("tomek", "pressed action home")
                 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.quotesapp.R
+import com.example.quotesapp.ui.quotes.firstteam.FirstTeamActivity
 import kotlinx.android.synthetic.main.start_main.view.*
 
 class MainFragment : Fragment() {
@@ -24,11 +25,7 @@ class MainFragment : Fragment() {
             }
         }
 
-
         return root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//    }
 }

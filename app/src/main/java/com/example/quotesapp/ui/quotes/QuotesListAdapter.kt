@@ -17,7 +17,9 @@ class QuotesListAdapter internal constructor(
     private var quotes = emptyList<QuoteDb>() // Cached copy of words !!!!!!!!!!!!!!
 
     inner class QuotesDbViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val quotesItemView: TextView = itemView.findViewById(R.id.textView)
+        val quotesItemView: TextView = itemView.findViewById(R.id.textViewQoute)
+
+        val authorItemView: TextView = itemView.findViewById(R.id.textViewAuthor)
 
     }
 
@@ -34,7 +36,8 @@ class QuotesListAdapter internal constructor(
 
     override fun onBindViewHolder(holder: QuotesDbViewHolder, position: Int) {
         val current = quotes[position]
-        holder.quotesItemView.text = current.quote
+        holder.quotesItemView.text = current.quote + " " + current.id
+        holder.authorItemView.text = (current.id!!.toInt() % 7).toString()
     }
 
     internal fun setQuotes(quotes: List<QuoteDb>) {

@@ -5,20 +5,20 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/actionHome"
-            android:icon="@drawable/ic_add_black_24dp"
+            android:icon="@drawable/ic_home_black_24dp"
             android:orderInCategory="100"
             android:title="@string/home"
             app:showAsAction="never" />
 
         <item
-            android:id="@+id/actionShorts"
-            android:icon="@drawable/ic_add_black_24dp"
+            android:id="@+id/actionFirstTeam"
+            android:icon="@drawable/ic_people_black_24dp"
             android:orderInCategory="100"
             android:title="@string/first_team"
             app:showAsAction="never" />
         <item
-            android:id="@+id/action_settings4"
-            android:icon="@drawable/ic_add_black_24dp"
+            android:id="@+id/actionSecondTeam"
+            android:icon="@drawable/ic_people_black_24dp"
             android:orderInCategory="100"
             android:title="@string/second_team"
             app:showAsAction="never" />

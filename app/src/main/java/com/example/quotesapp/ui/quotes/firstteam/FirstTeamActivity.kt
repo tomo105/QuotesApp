@@ -1,9 +1,8 @@
-package com.example.quotesapp.ui.quotes
+package com.example.quotesapp.ui.quotes.firstteam
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log.d
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,23 +12,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quotesapp.R
 import com.example.quotesapp.db.QuoteDb
+import com.example.quotesapp.ui.quotes.MainActivity
+import com.example.quotesapp.ui.quotes.NewQuoteActivity
+import com.example.quotesapp.ui.quotes.QuotesDbViewModel
+import com.example.quotesapp.ui.quotes.QuotesListAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.firstteam_activity.*
-import kotlinx.android.synthetic.main.main.*
-import kotlinx.android.synthetic.main.start_main.*
+import kotlinx.android.synthetic.main.fragment_main.*
 
 class FirstTeamActivity : AppCompatActivity() {
 
     private lateinit var quoteDbViewModel: QuotesDbViewModel
-    private val newQuoteActivityRequestedCode = 2
+    private val newQuoteActivityRequestedCode = 1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.firstteam_activity)
+        setSupportActionBar(toolbarFirstTeam)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         val adapter = QuotesListAdapter(this)
 
@@ -42,9 +44,9 @@ class FirstTeamActivity : AppCompatActivity() {
             quotes?.let { adapter.setQuotes(it) }  //!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         })
-        quoteDbViewModel.capacityAuthors.observe(this, Observer { size ->
-            textNumber.text = size.toString()
-        })
+//        quoteDbViewModel.capacityAuthors.observe(this, Observer { size ->
+////            textNumber.text = size.toString()
+////        }) jak wyswietlalem ilosc w druzynie to to bylo
 
         //gdy dodoaje nowy wpis
         val fab = findViewById<FloatingActionButton>(R.id.fab)
@@ -52,6 +54,11 @@ class FirstTeamActivity : AppCompatActivity() {
             d("tomek", "clicked a fab")
             val intent = Intent(this, NewQuoteActivity::class.java)
             startActivityForResult(intent, newQuoteActivityRequestedCode)
+        }
+            //todo remove one of the rider
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp)
         }
     }
 
@@ -64,6 +71,11 @@ class FirstTeamActivity : AppCompatActivity() {
                 quoteDbViewModel.insert(quote)
 
                 d("tomek", "OKKK")
+                Toast.makeText(
+                    applicationContext,
+                    R.string.app_name,
+                    Toast.LENGTH_LONG
+                ).show()
             }
 //        } else if (requestCode == newQuoteActivityRequestedCode2 && resultCode == Activity.RESULT_OK) {
 //            data?.getStringExtra(NewQuoteActivity.EXTRA_REPLY)?.let {
@@ -85,6 +97,6 @@ class FirstTeamActivity : AppCompatActivity() {
         d("tomek", "pressed back ")
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-
     }
+
 }

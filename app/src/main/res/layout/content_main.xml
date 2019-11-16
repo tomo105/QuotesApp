@@ -9,7 +9,6 @@
     tools:showIn="@layout/activity_main">
 
 
-
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="0dp"

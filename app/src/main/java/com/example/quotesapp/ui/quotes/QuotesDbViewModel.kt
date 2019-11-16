@@ -37,7 +37,7 @@ class QuotesDbViewModel(application: Application) : AndroidViewModel(application
 
 //wrapper insert() method that calls the Repository's insert() method. In this way,
 // the implementation of insert() is encapsulated from the UI.
-// We don't want insert to block the main thread, so we're launching a new coroutine
+// We don't want insert to block the fragment_main thread, so we're launching a new coroutine
 // and calling the repository's insert, which is a suspend function.
 // As mentioned, ViewModels have a coroutine scope based on their life cycle called viewModelScope,
 // which we use here.
